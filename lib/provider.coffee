@@ -3,9 +3,9 @@ getCompletions = require './get-completions'
 
 module.exports =
   selector: '*'
-  inclusionPriority: 2
+  inclusionPriority: 1
   suggestionPriority: 2
-  excludeLowerPriority: true
+  excludeLowerPriority: false
   filterSuggestions: false
 
   name: 'TabNine'
@@ -16,4 +16,3 @@ module.exports =
   getSuggestions: (context) ->
     return [] unless utility.isEnabledForScope context.editor.getRootScopeDescriptor()
     getCompletions(context).catch utility.notifyError []
-
